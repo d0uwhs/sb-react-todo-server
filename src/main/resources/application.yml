@@ -1,0 +1,21 @@
+spring:
+  datasource:
+#    url: jdbc:mariadb://218.239.207.244:30303/sb_react_todo
+    url: jdbc:mariadb://218.239.207.244:30303/sb_react_todo
+    username: minjun
+    password: alswns123!
+    driver-class-name: org.mariadb.jdbc.Driver
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.d0uwhs.sbreacttodoserver.domain
+  mapper-locations: mybatis/**.xml
+
+
+logging:
+  file:
+    name: ${user.dir}/log/test.log
+  level:
+    com.d0uwhs.sbreacttodoserver : error
+    com.d0uwhs.sbreacttodoserver.controller : debug
