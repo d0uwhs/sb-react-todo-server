@@ -1,4 +1,4 @@
-package com.d0uwhs.sbreacttodoserver.domain;
+package com.d0uwhs.sbreacttodoserver.web.dto.response.todolist;
 
 
 import lombok.AllArgsConstructor;
@@ -10,13 +10,10 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
-/**
- * TODO : domain 패키지와 web/dto 패키지의 차이점은?
- */
-public class Todo {
+@AllArgsConstructor
+@NoArgsConstructor
+public class TodoResponse {
     private Long todoId;
     private Long memberId;
     private String todoTitle;

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.d0uwhs.sbreacttodoserver.mapper.todo.TodoMapper">
+    <delete id="deleteTodo">
+        DELETE
+        FROM todo
+        WHERE todo_id = #{todoId}
+    </delete>
+
+    <select id="findByTodoId" resultType="com.d0uwhs.sbreacttodoserver.web.dto.response.todolist.TodoResponse">
+        SELECT *
+        FROM todo
+        WHERE todo_id = #{todoId}
+    </select>
+
+    <select id="findAll" resultType="com.d0uwhs.sbreacttodoserver.web.dto.response.todolist.TodoResponse">
+        SELECT *
+        FROM todo
+    </select>
+
+    <insert id="insertTodo">
+        INSERT INTO todo(member_id, todo_title, todo_body, due_date)
+        VALUES (#{memberId}, #{todoTitle}, #{todoBody}, #{dueDate})
+        <selectKey resultType="long" keyProperty="todoId" order="AFTER">
+            SELECT LAST_INSERT_ID();
+        </selectKey>
+
+    </insert>
+</mapper>

@@ -1,10 +1,14 @@
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   datasource:
 #    url: jdbc:mariadb://218.239.207.244:30303/sb_react_todo
     url: jdbc:mariadb://218.239.207.244:30303/sb_react_todo
     username: minjun
     password: alswns123!
     driver-class-name: org.mariadb.jdbc.Driver
+
 
 mybatis:
   configuration:
@@ -14,8 +18,5 @@ mybatis:
 
 
 logging:
-  file:
-    name: ${user.dir}/log/test.log
   level:
-    com.d0uwhs.sbreacttodoserver : error
-    com.d0uwhs.sbreacttodoserver.controller : debug
+    root: info
